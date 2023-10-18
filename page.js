@@ -5,6 +5,7 @@ const { stringify } = require("querystring")
 const { SlowBuffer } = require("buffer");
 const { Console } = require("console");
  
+// document.cookie = "csrftoken=cRMhaK4LeBLNZZ9sI1y2Y9UMpN02pDsQ";
 
 
 const app = express();
@@ -35,7 +36,8 @@ app.post("/cat", (req, res) => {
     curlToken.setOpt(
       Curl.option.POSTFIELDS,
       querystring.stringify({
-        token: "cf36cb7f9adc02351b401f46f47aebc0e60aece9"
+        csrftoken: "cf36cb7f9adc02351b401f46f47aebc0e60aece9",
+        DEBUG: true
       })
     );
     

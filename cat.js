@@ -62,7 +62,7 @@ curlTest.setOpt(Curl.option.SSL_VERIFYPEER, false);
 curlTest.setOpt(
   Curl.option.POSTFIELDS,
   querystring.stringify({
-    token: "cf36cb7f9adc02351b401f46f47aebc0e60aece9"
+    token: ""
   })
 );
 

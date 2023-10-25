@@ -1,0 +1,2 @@
+
+ { ["data"]=> array(1) { [0]=> array(7) { ["cell_id"]=> int(83869) ["cell_title"]=> string(6) "Cell 1" ["warehouse_id"]=> int(79538) ["warehouse_title"]=> string(23) "Pugeta > Pugeta Magazyn" ["residue"]=> float(1) ["total_sum"]=> float(217) ["sernums"]=> array(1) { [0]=> array(2) { ["id"]=> int(24558439) ["code"]=> string(9) "000000864" } } } } ["count"]=> int(1) ["success"]=> bool(true) }

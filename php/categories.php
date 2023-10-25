@@ -22,9 +22,10 @@ $token= $ret->{'token'};
 
 
 
+//curl -G https://api.remonline.ru/warehouse/categories/ \ -d "token=7bab555b5ed075353de2263dd50a394c84a4625a"
 
 
-$endpoint = 'https://api.orderry.com/warehouse/goods/79538';
+$endpoint = 'https://api.orderry.com/warehouse/categories/';
 $params = array('token' => $token);
 $url = $endpoint . '?' . http_build_query($params);
 curl_setopt($ch, CURLOPT_URL, $url);

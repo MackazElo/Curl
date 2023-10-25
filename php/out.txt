@@ -1,0 +1,18 @@
+array(3) { ["data"]=> array(1) { [0]=> array(7) { ["cell_id"]=> int(83869) ["cell_title"]=> string(6) "Cell 1" ["warehouse_id"]=> int(79538) ["warehouse_title"]=> string(23) "Pugeta > Pugeta Magazyn" ["residue"]=> float(16) ["total_sum"]=> float(1560.74) ["sernums"]=> array(16) 
+{ [0]=> array(2) { 
+["id"]=> int(24772648) ["code"]=> string(8) "00014188" } [1]=> array(2) { 
+["id"]=> int(24918205) ["code"]=> string(8) "00017842" } [2]=> array(2) { 
+["id"]=> int(25255478) ["code"]=> string(8) "00026383" } [3]=> array(2) { 
+["id"]=> int(25255479) ["code"]=> string(8) "00026384" } [4]=> array(2) { 
+["id"]=> int(25311493) ["code"]=> string(8) "00027279" } [5]=> array(2) { 
+["id"]=> int(25311494) ["code"]=> string(8) "00027280" } [6]=> array(2) { 
+["id"]=> int(25381674) ["code"]=> string(8) "00029020" } [7]=> array(2) { 
+["id"]=> int(25381678) ["code"]=> string(8) "00029024" } [8]=> array(2) { 
+["id"]=> int(25381679) ["code"]=> string(8) "00029025" } [9]=> array(2) { 
+["id"]=> int(25381680) ["code"]=> string(8) "00029026" } [10]=> array(2) { 
+["id"]=> int(25381681) ["code"]=> string(8) "00029027" } [11]=> array(2) { 
+["id"]=> int(25381682) ["code"]=> string(8) "00029028" } [12]=> array(2) { 
+["id"]=> int(25381683) ["code"]=> string(8) "00029029" } [13]=> array(2) { 
+["id"]=> int(25382756) ["code"]=> string(8) "00029130" } [14]=> array(2) { 
+["id"]=> int(25382757) ["code"]=> string(8) "00029131" } [15]=> array(2) { 
+["id"]=> int(25382758) ["code"]=> string(8) "00029132" } } } } ["count"]=> int(1) ["success"]=> bool(true) }

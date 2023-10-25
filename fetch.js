@@ -1,6 +1,17 @@
 const express = require('express');
 const app = express();
 const PORT = 8080;
+const database = require('./database.js');
+
+
+
+
+
+
+		
+        
+
+
 
 
 import('node-fetch').then(fetchModule => {
@@ -76,7 +87,7 @@ async function finfile(title){
       });
 }
 
-async function mainn() {
+async function json_mainn() {
     try {
         const token = await get_token(appi);
         const page = '1'
@@ -115,6 +126,7 @@ async function mainn() {
                     let product = products.data[j]
                     // console.log(product)
                     // await newline(title, product)
+                    await newtext(title, product)
                     await newtext(title, product)
                     j++
                 }
@@ -196,8 +208,133 @@ app.get('/ti', (req, res) => {
         size: 'XS'
     })
 });
-app.get('/cat', (req, res) => {
-    mainn()
+app.get('/json', (req, res) => {
+    json_mainn()
+    res.status(200).send({
+        tshirt: '👕',
+        size: 'XS'
+    })
+});
+app.get('/que', (req, res) => {
+
+    async function db_main() {
+        try {
+            const token = await get_token(appi);
+            const page = '1'
+            const warehouse = '79538'
+            let url_categories = ` https://api.orderry.com/warehouse/categories/?token=${token}`
+    
+    
+    
+            let products = ""
+    
+            let categories = (await ffetch(url_categories))
+            console.log("Updating database from API")
+            var query = 'TRUNCATE TABLE `orderry_api`.`warehouse_products`';
+                   
+                    
+            database.query(query, function(error, data){
+
+                
+                // console.log(query)
+                // console.log(error)
+                // console.log(data)
+
+            });
+
+            
+            let i = 0 
+            while(i<categories.data.length){
+                let procent = Math.ceil((i/categories.data.length)*100)
+                console.log(`${procent}%`)
+                let category = categories.data[i].id
+                let url_products=`https://api.orderry.com/warehouse/goods/${warehouse}?token=${token}&categories[]=${category}`
+                products = (await ffetch(url_products))
+                let pages = Math.ceil(products.count/50)
+                let p = 0;
+                while(p<pages){
+                    p++
+                    let url_products=`https://api.orderry.com/warehouse/goods/${warehouse}?token=${token}&categories[]=${category}&page=${p}`
+                    products = (await ffetch(url_products))
+                    let j = 0
+                     while(j<products.data.length){
+                  
+                        let product = products.data[j]
+
+
+
+                    var query = `INSERT INTO warehouse_products (id, code, title, image, price, article, residue, category_id, category_title, parent_id, description, custom_fields, warranty, warranty_period) VALUES (${product.id}, "${product.code}", "${product.title}", "${product.image}", 0, "${product.article}", ${product.residue}, ${product.category.id}, "${product.category.title}", ${product.category.parent_id}, "${product.description}", "${product.custom_fields}", ${product.warranty}, ${product.warranty_period})`;
+                    
+                    
+                    database.query(query, function(error, data){
+
+                        
+                        // console.log(query)
+                        // console.log(error)
+                        // console.log(data)
+
+                    });
+
+
+
+                        
+                        j++
+                    }
+                    
+                }
+               
+                i++
+            }
+            console.log("Fin")
+    
+    
+    
+        } catch (error) {
+            console.error("Error in mainn:", error);
+        }
+    }
+
+    db_main()
+    
+    res.status(200).send({
+        tshirt: '👕',
+        size: 'XS'
+    })
+});
+app.get('/post', (req, res) => {
+
+    async function post_main() {
+        try {
+            const token = await get_token(appi);
+            const page = '1'
+            const warehouse = '79538'
+            let url_categories = ` https://api.orderry.com/warehouse/categories/?token=${token}`
+    
+    
+    
+            let products = ""
+    
+            let categories = (await ffetch(url_categories))
+            console.log("Updating database from API")
+                   
+                    
+         
+            let i = 0 
+            while(i<categories.data.length){
+                
+                i++
+            }
+            console.log("Fin")
+    
+    
+    
+        } catch (error) {
+            console.error("Error in mainn:", error);
+        }
+    }
+
+    post_main()
+    
     res.status(200).send({
         tshirt: '👕',
         size: 'XS'
